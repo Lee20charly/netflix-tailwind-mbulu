@@ -1,0 +1,57 @@
+<section class="mt-[20px]">
+  <h3 class="text-white text-[20px] font-[500]">Trending Now</h3>
+
+  <!-- Container du carrousel -->
+  <div class="relative overflow-hidden rounded-lg mt-4">
+    <div id="carousel" class="carousel flex transition-transform duration-500">
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/1.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/2.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/3.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/4.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/5.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/6.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/7.webp" class="w-full" />
+      </div>
+      <div class="carousel-item w-1/2 flex-shrink-0">
+        <img src="./assets/8.webp" class="w-full" />
+      </div>
+    </div>
+
+    <!-- Boutons précédent et suivant -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-white text-gray-700 shadow-lg">
+      &#10094;
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-white text-gray-700 shadow-lg">
+      &#10095;
+    </button>
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById('carousel');
+  const totalItems = document.querySelectorAll('.carousel-item').length;
+  let currentIndex = 0;
+
+  document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalItems;
+    carousel.style.transform = `translateX(-${currentIndex * 50}%)`; // 50% correspond à deux éléments par vue
+  });
+
+  document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    carousel.style.transform = `translateX(-${currentIndex * 50}%)`;
+  });
+</script>
